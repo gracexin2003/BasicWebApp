@@ -9,7 +9,7 @@ public class IndexPage extends HtmlPage {
         writer.println(
                 "<h1>Welcome! OWO </h1>" +
                 "<p>o-o Enter your query in the box below ^-^: " +
-                  "<form><input type=\"Enter text here :D\" name=\"q\" />" +
+                  "<form><input type=\"text\" name=\"q\" />" +
                     "<input type=\"submit\">" +
                   "</form>" +
                 "</p>");
