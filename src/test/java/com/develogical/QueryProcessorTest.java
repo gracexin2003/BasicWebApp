@@ -45,4 +45,14 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("Which of the following numbers is the largest: 1, 3, 2"), containsString("3"));
     }
 
+    @Test
+    public void canFindSquareCube() throws Exception {
+        assertThat(queryProcessor.process("Which of the following numbers is both a square and a cube: 1, 4, 2"), containsString("1"));
+    }
+
+    @Test
+    public void canFindSquareCube2() throws Exception {
+        assertThat(queryProcessor.process("Which of the following numbers is both a square and a cube: 3, 64, 2"), containsString("64"));
+    }
+
 }
