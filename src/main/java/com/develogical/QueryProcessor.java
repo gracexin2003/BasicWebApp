@@ -25,6 +25,23 @@ public class QueryProcessor {
                 }
             }
         }
+        if (query.toLowerCase().contains("largest:")) {
+            String[] strs = query.split(" ");
+            boolean hi = false;
+            int max = Integer.MIN_VALUE;
+            int i;
+            for (i = 0; i < strs.length; i++) {
+                if (hi) {
+                    String intString = strs[i].split(",")[0];
+                    int n = Integer.parseInt(intString);
+                    max = Math.max(max, n);
+                }
+                if (strs[i].toLowerCase().equals("largest:")) {
+                    hi = true;
+                }
+            }
+            return Integer.toString(max);
+        }
         return "";
     }
 }
