@@ -78,6 +78,9 @@ public class QueryProcessor {
                 }
             }
         }
+        if (query.toLowerCase().contains("Bond")) {
+            return "Sean Connery";
+        }
         return "";
     }
 }

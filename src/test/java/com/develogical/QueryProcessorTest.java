@@ -60,4 +60,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("What is 1 multiplied by 2"), containsString("2"));
     }
 
+    @Test
+    public void knowsBond() throws Exception {
+        assertThat(queryProcessor.process("Who played James Bond in the film Dr No"), containsString("Sean Connery"));
+    }
+
 }
