@@ -93,7 +93,7 @@ public class QueryProcessor {
                 }
             }
         }
-        if (query.toLowerCase().contains("Bond")) {
+        if (query.toLowerCase().contains("bond")) {
             return "Sean Connery";
         }
         if (query.toLowerCase().contains("primes:")) {
