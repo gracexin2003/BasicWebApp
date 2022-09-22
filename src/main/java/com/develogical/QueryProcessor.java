@@ -14,6 +14,17 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("uwu")) {
             return "HELLO, FELLOW WEEB!! 0W0";
         }
+        if (query.toLowerCase().contains("plus")) {
+            String[] strs = query.split(" ");
+            for (int i = 0; i < strs.length; i++) {
+                if (strs[i].toLowerCase().equals("plus")) {
+                    int int1 = Integer.parseInt(strs[i-1]);
+                    int int2 = Integer.parseInt(strs[i+1]);
+                    int sum = int1+int2;
+                    return Integer.toString(sum);
+                }
+            }
+        }
         return "";
     }
 }

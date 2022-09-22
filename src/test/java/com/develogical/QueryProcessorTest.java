@@ -35,4 +35,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("I'm a weeb, UwU"), containsString("HELLO, FELLOW WEEB!! 0W0"));
     }
 
+    @Test
+    public void canAdd() throws Exception {
+        assertThat(queryProcessor.process("What is 1 plus 2"), containsString("3"));
+    }
+
 }
