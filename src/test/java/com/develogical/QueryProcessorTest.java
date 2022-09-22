@@ -65,4 +65,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("Who played James Bond in the film Dr No"), containsString("Sean Connery"));
     }
 
+    @Test
+    public void canPrime() throws Exception {
+        assertThat(queryProcessor.process("Which of the following numbers are primes: 10, 3, 18, 5"), containsString("3, 5"));
+    }
+
 }

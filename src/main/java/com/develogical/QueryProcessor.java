@@ -1,5 +1,9 @@
 package com.develogical;
 
+import java.util.ArrayList;
+
+import org.eclipse.jetty.server.handler.ContextHandler.ApproveNonExistentDirectoryAliases;
+
 public class QueryProcessor {
 
     public boolean isSquare(int x) {
@@ -10,6 +14,17 @@ public class QueryProcessor {
     public boolean isCube(int x) {
         double cbrt = Math.cbrt(x);
         return ((cbrt - Math.floor(cbrt)) == 0); 
+    }
+
+    public boolean isPrime(int n) {
+        if (n <= 1)
+            return false;
+  
+        for (int i = 2; i < n; i++)
+            if (n % i == 0)
+                return false;
+  
+        return true;
     }
 
     public String process(String query) {
@@ -80,6 +95,27 @@ public class QueryProcessor {
         }
         if (query.toLowerCase().contains("Bond")) {
             return "Sean Connery";
+        }
+        if (query.toLowerCase().contains("primes:")) {
+            String[] strs = query.split(" ");
+            boolean hi = false;
+            ArrayList<Integer> primes = new ArrayList<>();
+            int i;
+            for (i = 0; i < strs.length; i++) {
+                if (hi) {
+                    String intString = strs[i].split(",")[0];
+                    int n = Integer.parseInt(intString);
+                    if (isPrime(n)) primes.add(n);
+                }
+                if (strs[i].toLowerCase().equals("primes:")) {
+                    hi = true;
+                }
+            }
+            String ret = "";
+            for (int x : primes) {
+                ret += x + ", ";
+            }
+            return ret.substring(0, ret.length() - 2);
         }
         return "";
     }
